@@ -54,7 +54,12 @@
 
 		<div class="masthead">
 			<div class="ui text container">
-				<h1><?php echo $_SESSION["username"]; ?></h1>
+				<h1>
+					<?php echo $_SESSION["username"]; ?>
+					<a class="ui blue label" onclick="$('#editprofile-modal').modal('toggle')">
+						Edit Profile
+					</a>
+				</h1>
 			</div>
 		</div>
 
@@ -129,12 +134,38 @@
 		</div>
 	</div>
 
+	<!-- modals -->
+	<form id="editprofile-modal" class="ui small basic modal form" method="POST" action="/api/editprofile.php">
+		<div class="header">Edit Profile</div>
+		<div class="content">
+			<div class="ui field">
+				<label>Username</label>
+				<input type="text" name="username" value="<?php echo $_SESSION["username"]; ?>">
+			</div>
+			<div class="ui stackable equal width grid">
+				<div class="column field">
+					<label>Current Password</label>
+					<input type="password" name="password" required>
+				</div>
+				<div class="column field">
+					<label>New Password (leave blank to keep old password)</label>
+					<input type="password" name="newPassword">
+				</div>
+			</div>
+		</div>
+		<div class="actions">
+			<button class="ui inverted red cancel button" type="button">Cancel</button>
+			<button class="ui inverted green approve button" type="submit">Update Profile</button>
+		</div>
+	</form>
+
 	<script src="https://cdn.jsdelivr.net/g/jquery@3.1.1,semantic-ui@2.2.6,jquery.slick@1.6.0"></script>
 	<script src="https://use.fontawesome.com/cce022efb7.js"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function(){
 			//initialize modals
+			$("#editprofile-modal").modal();
 		});
 	</script>
 </body>
