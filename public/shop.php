@@ -17,13 +17,73 @@
 </head>
 <body>
 	<div id="shop">
-		<div class="ui large secondary menu">
-			<div class="item">Ikebana</div>
+		<header class="ui secondary menu">
 			<div class="right menu">
-				<div class="item">login</div>
-				<div class="item">register</div>
+				<?php if (isset($_SESSION["userid"])) { ?>
+					<div class="item">
+						<a href="/profile.php" class="ui black label">
+							Welcome, <strong><?php echo $_SESSION["username"]; ?></strong>.
+						</a>
+					</div>
+					<?php if ($_SESSION["userisadmin"]) { ?>
+						<div class="item">
+							<a class="ui secondary button" href="/manage.php">
+								Manage Shop
+							</a>
+						</div>
+					<?php } ?>
+					<div class="item">
+						<a href="/api/logout.php" class="ui secondary button">Logout</a>
+					</div>
+				<?php } else { ?>
+					<?php if (isset($_GET["logout_success"])) { ?>
+						<div class="item">
+							<div class="ui right pointing green label">
+								<?php echo $_GET["logout_success"]; ?>
+							</div>
+						</div>
+					<?php } ?>
+					<div class="item">
+						<div class="ui secondary button" onClick="$('#login-modal').modal('toggle');">
+							Login
+						</div>
+					</div>
+					<?php if (isset($_GET["login_error"])) { ?>
+						<div class="item">
+							<div class="ui left pointing red label">
+								<?php echo $_GET["login_error"]; ?>
+							</div>
+						</div>
+					<?php } ?>
+					<div class="item">
+						<div class="ui secondary button" onClick="$('#register-modal').modal('toggle');">
+							Register
+						</div>
+					</div>
+					<?php if (isset($_GET["register_error"])) { ?>
+						<div class="item">
+							<div class="ui left pointing red label">
+								<?php echo $_GET["register_error"]; ?>
+							</div>
+						</div>
+					<?php } ?>
+					<?php if (isset($_GET["register_success"])) { ?>
+						<div class="item">
+							<div class="ui left pointing green label">
+								<?php echo $_GET["register_success"]; ?>
+							</div>
+						</div>
+					<?php } ?>
+				<?php } ?>
+			</div>
+		</header>
+
+		<div class="masthead">
+			<div class="ui text container">
+				<h1>Ikebana</h1>
 			</div>
 		</div>
+
 		<div class="ui stackable grid container">
 			<div class="twelve wide column">
 				<?php if (isset($_GET["success_message"])) { ?>
