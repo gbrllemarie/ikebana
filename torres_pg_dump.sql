@@ -134,6 +134,8 @@ ALTER SEQUENCE orders_id_seq OWNED BY orders.id;
 CREATE TABLE products (
     id integer NOT NULL,
     productname character varying(255) NOT NULL,
+    description character varying(255),
+    status boolean DEFAULT true,
     priceeach integer NOT NULL,
     instock integer DEFAULT 0
 );
@@ -251,19 +253,19 @@ SELECT pg_catalog.setval('orders_id_seq', 1, false);
 -- Data for Name: products; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY products (id, productname, priceeach, instock) FROM stdin;
-1	Rae	1	100
-2	Caryl	21	100
-3	Sofie	3	100
-4	Chryssy	10	100
-5	Yza	1000	100
-6	Loly	20	100
-7	Catch	200	100
-8	Zaps	300	100
-9	Lara	300	100
-10	Avie	1500	100
-11	Eunice	1750	100
-12	Clacla	2000	100
+COPY products (id, productname, description, status, priceeach, instock) FROM stdin;
+1	Rae	Pineda	t	1	100
+2	Caryl	Balbas	t	21	100
+3	Sofie	Panga	t	3	100
+4	Chryssy	Neith	t	10	100
+5	Yza	Elia	f	1000	100
+6	Loly	Loly	t	20	100
+7	Catch	Ila	f	200	100
+8	Zaps	Zap	f	300	100
+9	Lara	Luh	f	300	100
+10	Avie	Tah	f	1500	100
+11	Eunice	De	f	1750	100
+12	Clacla	Vil	f	2000	100
 \.
 
 
@@ -271,7 +273,7 @@ COPY products (id, productname, priceeach, instock) FROM stdin;
 -- Name: products_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('products_id_seq', 12, true);
+SELECT pg_catalog.setval('products_id_seq', 13, true);
 
 
 --
@@ -288,7 +290,7 @@ COPY users (id, username, password, isadmin) FROM stdin;
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('users_id_seq', 2, true);
+SELECT pg_catalog.setval('users_id_seq', 3, true);
 
 
 --

@@ -19,7 +19,7 @@
 		$description = $_POST["description"];
 		$priceEach = $_POST["priceEach"];
 		$inStock = $_POST["inStock"];
-		$status = $_POST["status"] === "t" ? "true" : "false";
+		$status = ($_POST["status"] === "t" ? "true" : "false");
 		$query = "INSERT INTO products (productname, description, status, priceeach, instock) VALUES ('$productName', '$description', $status, $priceEach, $inStock) RETURNING id";
 		$result = pg_query($query);
 
