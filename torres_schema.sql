@@ -23,6 +23,8 @@ CREATE TABLE orders (
 CREATE TABLE products (
              id serial primary key,
              productname varchar(255) NOT NULL unique,
+             description varchar(255),
+             status bool DEFAULT true,
              priceeach int NOT NULL,
              instock int DEFAULT 0);
 

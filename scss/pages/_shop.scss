@@ -3,12 +3,7 @@
 		background-size: cover;
 
 		.content {
-			.header {
-				color: $palette-white;
-				text-shadow: 0 2px 2px $palette-black;
-			}
-
-			.meta {
+			.header, .meta, .description {
 				color: $palette-white;
 				text-shadow: 0 2px 2px $palette-black;
 			}

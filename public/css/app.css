@@ -138,10 +138,7 @@ header + .masthead {
 
 #shop .ui.cards > .product.card {
   background-size: cover; }
-  #shop .ui.cards > .product.card .content .header {
-    color: #EFEFEF;
-    text-shadow: 0 2px 2px #393939; }
-  #shop .ui.cards > .product.card .content .meta {
+  #shop .ui.cards > .product.card .content .header, #shop .ui.cards > .product.card .content .meta, #shop .ui.cards > .product.card .content .description {
     color: #EFEFEF;
     text-shadow: 0 2px 2px #393939; }
   #shop .ui.cards > .product.card .extra.content input {

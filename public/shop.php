@@ -97,6 +97,9 @@
 								<div class="meta">
 									<?php echo $row["instock"]; ?> left in stock
 								</div>
+								<div class="desccription">
+									<?php echo $row["description"]; ?>
+								</div>
 							</div>
 							<div class="extra content">
 								<form method="POST" action="/api/addtocart.php" class="ui right floated right action input">

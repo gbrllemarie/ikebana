@@ -1,19 +1,19 @@
 
 \c torres
 
-COPY products (id, productname, priceeach, instock) FROM stdin;
-1	Rae	1	100
-2	Caryl	21	100
-3	Sofie	3	100
-4	Chryssy	10	100
-5	Yza	1000	100
-6	Loly	20	100
-7	Catch	200	100
-8	Zaps	300	100
-9	Lara	300	100
-10	Avie	1500	100
-11	Eunice	1750	100
-12	Clacla	2000	100
+COPY products (id, productname, description, status, priceeach, instock) FROM stdin;
+1	Rae	Pineda	t	1	100
+2	Caryl	Balbas	t	21	100
+3	Sofie	Panga	t	3	100
+4	Chryssy	Neith	t	10	100
+5	Yza	Elia	f	1000	100
+6	Loly	Loly	t	20	100
+7	Catch	Ila	f	200	100
+8	Zaps	Zap	f	300	100
+9	Lara	Luh	f	300	100
+10	Avie	Tah	f	1500	100
+11	Eunice	De	f	1750	100
+12	Clacla	Vil	f	2000	100
 \.
 
 COPY users (id, username, password, isadmin) FROM stdin;
