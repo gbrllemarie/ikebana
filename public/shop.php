@@ -219,9 +219,17 @@
 			<button class="ui inverted green approve button" type="submit">Submit</button>
 		</div>
 	</form>
-	<form method="POST" action="/api/commitorder.php" id="commitorder-modal" class="ui basic modal form">
-		<div class="ui fluid cancel button">Cancel</div>
-		<button type="submit" class="ui fluid green approve button">Place Order</button>
+
+	<form method="POST" action="/api/commitorder.php" id="commitorder-modal" class="ui small basic modal form">
+		<input type="hidden" name="productId">
+		<div class="header">Confirm Order</div>
+		<div class="content">
+			Place order?
+		</div>
+		<div class="actions">
+			<button type="button" class="ui inverted red cancel button">Cancel</button>
+			<button type="submit" class="ui inverted green approve button">Place Order</button>
+		</div>
 	</form>
 
 	<script src="https://cdn.jsdelivr.net/g/jquery@3.1.1,semantic-ui@2.2.6,jquery.slick@1.6.0"></script>
