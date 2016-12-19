@@ -10,13 +10,17 @@
 
 	// check that required fields are set
 	if ((isset($_POST["productName"]) && $_POST["productName"] !== "")
+	 && (isset($_POST["description"]) && $_POST["description"] !== "")
 	 && (isset($_POST["priceEach"]) && $_POST["priceEach"] !== "")
-	 && (isset($_POST["inStock"]) && $_POST["inStock"] !== "")) {
+	 && (isset($_POST["inStock"]) && $_POST["inStock"] !== "")
+	 && (isset($_POST["status"]) && $_POST["status"] !== "")) {
 		// insert product details to database
 		$productName = $_POST["productName"];
+		$description = $_POST["description"];
 		$priceEach = $_POST["priceEach"];
 		$inStock = $_POST["inStock"];
-		$query = "INSERT INTO products (productname, priceeach, instock) VALUES ('$productName', $priceEach, $inStock) RETURNING id";
+		$status = $_POST["status"] === "t" ? "true" : "false";
+		$query = "INSERT INTO products (productname, description, status, priceeach, instock) VALUES ('$productName', '$description', $status, $priceEach, $inStock) RETURNING id";
 		$result = pg_query($query);
 
 		if ($result) {

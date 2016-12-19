@@ -79,6 +79,7 @@
 						$result = pg_query($query);
 						while($row = pg_fetch_array($result)) {
 							$id = $row["id"];
+							$inSeason = $row["status"] === "t";
 							$imgUrl = "images/products/default.png";
 							if (file_exists("images/products/$id.png")) {
 								$imgUrl = "images/products/$id.png";
@@ -86,18 +87,21 @@
 								$imgUrl = "images/products/$id.jpg";
 							}
 						?>
-						<div class="product card" style="background-image: url('<?php echo $imgUrl; ?>');">
+						<div class="product card <?php echo ($inSeason ? "in-season" : "off-season"); ?>" style="background-image: url('<?php echo $imgUrl; ?>');">
 							<div class="content">
 								<div class="ui right floated label">
 									Php <?php echo money_format("%.2n", $row["priceeach"]); ?>
+								</div>
+								<div class="ui right floated <?php echo ($inSeason ? "green" : "black"); ?> label">
+									<?php echo ($inSeason ? "In Season" : "Off Season"); ?>
 								</div>
 								<div class="header">
 									<?php echo $row["productname"]; ?>
 								</div>
 								<div class="meta">
-									<?php echo $row["instock"]; ?> left in stock
+										<?php echo $row["instock"]; ?> left in stock
 								</div>
-								<div class="desccription">
+								<div class="description">
 									<?php echo $row["description"]; ?>
 								</div>
 							</div>

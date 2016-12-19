@@ -141,6 +141,9 @@ header + .masthead {
   #shop .ui.cards > .product.card .content .header, #shop .ui.cards > .product.card .content .meta, #shop .ui.cards > .product.card .content .description {
     color: #EFEFEF;
     text-shadow: 0 2px 2px #393939; }
+  #shop .ui.cards > .product.card.off-season {
+    -webkit-filter: grayscale(1);
+            filter: grayscale(1); }
   #shop .ui.cards > .product.card .extra.content input {
     width: 50px;
     padding: 3px;

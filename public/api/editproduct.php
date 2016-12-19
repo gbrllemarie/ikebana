@@ -11,14 +11,18 @@
 	// check that required fields are set
 	if ((isset($_POST["productId"]) && $_POST["productId"] !== "")
 	 && (isset($_POST["productName"]) && $_POST["productName"] !== "")
+	 && (isset($_POST["description"]) && $_POST["description"] !== "")
 	 && (isset($_POST["priceEach"]) && $_POST["priceEach"] !== "")
-	 && (isset($_POST["inStock"]) && $_POST["inStock"] !== "")) {
+	 && (isset($_POST["inStock"]) && $_POST["inStock"] !== "")
+	 && (isset($_POST["status"]) && $_POST["status"] !== "")) {
 		// modify product details
 		$productId = $_POST["productId"];
 		$productName = $_POST["productName"];
+		$description = $_POST["description"];
 		$priceEach = $_POST["priceEach"];
 		$inStock = $_POST["inStock"];
-		$query = "UPDATE products SET (productname, priceeach, instock) = ('$productName', $priceEach, $inStock) WHERE id=$productId";
+		$status = $_POST["status"] === "t" ? "true" : "false";
+		$query = "UPDATE products SET (productname, description, status, priceeach, instock) = ('$productName', '$description', $status, $priceEach, $inStock) WHERE id=$productId";
 		$result = pg_query($query);
 
 		if ($result) {

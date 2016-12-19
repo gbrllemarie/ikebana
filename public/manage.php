@@ -74,6 +74,7 @@
 				<thead>
 					<tr>
 						<th>Product Name</th>
+						<th>Description</th>
 						<th class="right aligned">Price Each</th>
 						<th class="right aligned">In Stock</th>
 						<th class="right aligned">Actions</th>
@@ -87,7 +88,16 @@
 						while($row = pg_fetch_array($result)) { ?>
 							<tr>
 								<td>
+									<?php if ($row["status"] === "t") { ?>
+										<span class="ui green label">In Season</span>
+									<?php } else { ?>
+										<span class="ui label">Off Season</span>
+									<?php } ?>
+
 									<?php echo $row["productname"]; ?>
+								</td>
+								<td>
+									<?php echo $row["description"]; ?>
 								</td>
 								<td class="right aligned">
 									<?php echo money_format("%.2n", $row["priceeach"]); ?>
@@ -99,7 +109,9 @@
 									<a class="ui label" onclick="
 										$('#editproduct-modal input[name=productId]').val(<?php echo $row['id']; ?>);
 										$('#editproduct-modal input[name=productName]').val('<?php echo $row['productname']; ?>');
+										$('#editproduct-modal input[name=description]').val('<?php echo $row['description']; ?>');
 										$('#editproduct-modal input[name=inStock]').val(<?php echo $row['instock']; ?>);
+										$('#editproduct-modal select[name=status]').val('<?php echo $row['status']; ?>');
 										$('#editproduct-modal input[name=priceEach]').val(<?php echo $row['priceeach']; ?>);
 										$('#editproduct-modal').modal('toggle');
 									">
@@ -145,12 +157,23 @@
 				<input type="text" name="productName" placeholder="Product Name" required>
 			</div>
 			<div class="ui field">
+				<label>Product Description</label>
+				<input type="text" name="description" placeholder="Product Description" required>
+			</div>
+			<div class="ui field">
 				<label>Price Each</label>
 				<input type="number" name="priceEach" placeholder="Price Each" value="0" required>
 			</div>
 			<div class="ui field">
 				<label>In Stock</label>
 				<input type="number" name="inStock" placeholder="In Stock" value="0" required>
+			</div>
+			<div class="ui field">
+				<label>In Season</label>
+				<select name="status">
+					<option value="t" selected>True</option>
+					<option value="f">False</option>
+				</select>
 			</div>
 			<div class="ui field">
 				<label>Product Image</label>
@@ -172,12 +195,23 @@
 				<input type="text" name="productName" placeholder="Product Name" required>
 			</div>
 			<div class="ui field">
+				<label>Product Description</label>
+				<input type="text" name="description" placeholder="Product Description" required>
+			</div>
+			<div class="ui field">
 				<label>Price Each</label>
 				<input type="number" name="priceEach" placeholder="Price Each" required>
 			</div>
 			<div class="ui field">
 				<label>In Stock</label>
 				<input type="number" name="inStock" placeholder="In Stock" required>
+			</div>
+			<div class="ui field">
+				<label>In Season</label>
+				<select name="status">
+					<option value="t">True</option>
+					<option value="f">False</option>
+				</select>
 			</div>
 			<div class="ui field">
 				<label>Product Image</label>
