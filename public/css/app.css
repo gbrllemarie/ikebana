@@ -137,9 +137,7 @@ header + .masthead {
       outline: 1px solid #EFEFEF; }
 
 #shop header + .masthead h1 {
-  font-size: 128px;
-  font-family: "Megrim", sans-serif;
-  font-weight: 400; }
+  font-family: "Megrim", sans-serif; }
 
 #shop .ui.cards > .product.card {
   background-size: cover; }
