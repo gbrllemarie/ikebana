@@ -1,0 +1,20 @@
+{
+  "name": "ikebana",
+  "version": "1.0.0",
+  "description": "CS 165 Project",
+  "main": "public/index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass-build": "node_modules/node-sass/bin/node-sass scss/main.scss public/css/app.css && npm run sass-postcss",
+    "sass-postcss": "node_modules/postcss-cli/bin/postcss --use autoprefixer public/css/app.css -d public/css",
+    "sass-watch": "node_modules/nodemon/bin/nodemon.js -e scss -x 'npm run sass-build'"
+  },
+  "author": "Gabby Torres",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^6.5.4",
+    "node-sass": "^4.0.0",
+    "nodemon": "^1.11.0",
+    "postcss-cli": "^2.6.0"
+  }
+}

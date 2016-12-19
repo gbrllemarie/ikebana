@@ -1,0 +1,116 @@
+#homepage {
+	background: $palette-black;
+	color: $palette-white;
+	height: 100%;
+
+	#homepage-carousel {
+		.slide {
+			height: 100vh;
+			max-height: 100vh;
+
+			&.slide1 {
+				background: url(../images/unsplash-01-min.jpg) center center;
+				background-size: cover;
+			}
+
+			&.slide2 {
+				background: url(../images/unsplash-02-min.jpg) center center;
+				background-size: cover;
+			}
+
+			&.slide3 {
+				background: url(../images/unsplash-03-min.jpg) center center;
+				background-size: cover;
+			}
+
+			&.slide4 {
+				background: url(../images/unsplash-04-min.jpg) center center;
+				background-size: cover;
+			}
+
+			&.slide5 {
+				background: url(../images/unsplash-05-min.jpg) center center;
+				background-size: cover;
+			}
+
+			&.slide6 {
+				background: url(../images/unsplash-06-min.jpg) center center;
+				background-size: cover;
+			}
+		}
+
+		.slick-prev, .slick-next {
+			position: absolute;
+			top: 50%;
+			z-index: 10000;
+			font-size: 48px;
+			color: $palette-white;
+			cursor: pointer;
+			text-shadow: 0 2px 8px rgba(black, 0.5), 0 2px 15px rgba(black, 0.25);
+			transform: translateY(-50%);
+		}
+
+		.slick-prev {
+			left: 25px;
+		}
+
+		.slick-next {
+			right: 25px;
+		}
+	}
+
+	#title {
+		position: absolute;
+		bottom: 50%;
+		left: 0;
+		right: 0;
+		text-align: center;
+		z-index: 2500;
+		font-size: $title-size;
+		font-family: $title-typeface;
+		font-weight: $title-weight;
+		line-height: $title-line-height;
+		text-transform: uppercase;
+		text-shadow: 0 2px 8px rgba(black, 0.5), 0 2px 15px rgba(black, 0.25);
+		transform: translateY(calc(50% - 16px));
+	}
+
+	#subtitle {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		right: 0;
+		text-align: center;
+		z-index: 2500;
+		font-size: $heading-size;
+		font-family: $heading-typeface;
+		font-weight: 400;
+		letter-spacing: 3px;
+		text-transform: uppercase;
+		text-shadow: 0 2px 8px rgba(black, 0.5), 0 2px 15px rgba(black, 0.25);
+		transform: translateY(calc(-50% + 56px));
+	}
+}
+
+.ui.modals {
+	z-index: 50000;
+
+	.ui.form .field {
+
+		> label {
+		color: $palette-white;
+		}
+
+		input {
+			background: none;
+			color: $palette-white;
+			outline: none;
+
+			&:focus {
+				background: none;
+				color: $palette-white;
+				outline: 1px solid $palette-white;
+			}
+		}
+	}
+}

@@ -1,0 +1,44 @@
+#shop {
+	.ui.cards > .product.card {
+		background-size: cover;
+
+		.content {
+			.header {
+				color: $palette-white;
+				text-shadow: 0 2px 2px $palette-black;
+			}
+
+			.meta {
+				color: $palette-white;
+				text-shadow: 0 2px 2px $palette-black;
+			}
+		}
+
+		.extra.content {
+			input {
+				width: 50px;
+				padding: 3px;
+				background: rgba($palette-black, 0.75);
+				color: $palette-white;
+				text-align: center;
+				border-width: 2px 0 2px 2px;
+				border-color: rgba($palette-white, 0.75);
+
+				&:focus {
+					background: rgba($palette-black, 0.75);
+					border-color: $palette-white;
+				}
+			}
+
+			.ui.button {
+				background: rgba($palette-white, 0.75);
+				color: $palette-black;
+
+				&:hover {
+					background: $palette-white;
+					color: $palette-black;
+				}
+			}
+		}
+	}
+}
