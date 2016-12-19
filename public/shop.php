@@ -18,6 +18,9 @@
 <body>
 	<div id="shop">
 		<header class="ui secondary menu">
+			<a href="/" class="title item">
+				ikebana
+			</a>
 			<div class="right menu">
 				<?php if (isset($_SESSION["userid"])) { ?>
 					<div class="item">
@@ -79,8 +82,8 @@
 		</header>
 
 		<div class="masthead">
-			<div class="ui text container">
-				<h1>Ikebana</h1>
+			<div class="ui container">
+				<h1>Shop</h1>
 			</div>
 		</div>
 
@@ -196,6 +199,46 @@
 	</div>
 
 	<!-- modals -->
+
+		<!-- modals -->
+	<form id="login-modal" class="ui small basic modal form" method="POST" action="/api/login.php">
+		<div class="header">Login</div>
+		<div class="content">
+			<div class="ui stackable equal width grid">
+				<div class="column field">
+					<label>Username</label>
+					<input type="text" name="username">
+				</div>
+				<div class="column field">
+					<label>Password</label>
+					<input type="password" name="password">
+				</div>
+			</div>
+		</div>
+		<div class="actions">
+			<button class="ui inverted red cancel button" type="button">Cancel</button>
+			<button class="ui inverted green approve button" type="submit">Submit</button>
+		</div>
+	</form>
+	<form id="register-modal" class="ui small basic modal form" method="POST" action="/api/register.php">
+		<div class="header">Register</div>
+		<div class="content">
+			<div class="ui stackable equal width grid">
+				<div class="column field">
+					<label>Username</label>
+					<input type="text" name="username">
+				</div>
+				<div class="column field">
+					<label>Password</label>
+					<input type="password" name="password">
+				</div>
+			</div>
+		</div>
+		<div class="actions">
+			<button class="ui inverted red cancel button" type="button">Cancel</button>
+			<button class="ui inverted green approve button" type="submit">Submit</button>
+		</div>
+	</form>
 	<form method="POST" action="/api/commitorder.php" id="commitorder-modal" class="ui basic modal form">
 		<div class="ui fluid cancel button">Cancel</div>
 		<button type="submit" class="ui fluid green approve button">Place Order</button>
@@ -208,6 +251,8 @@
 		$(document).ready(function(){
 			//initialize modals
 			$("#commitorder-modal").modal();
+			$("#login-modal").modal();
+			$("#register-modal").modal();
 		});
 	</script>
 </body>
