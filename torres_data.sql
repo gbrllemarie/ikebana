@@ -16,11 +16,11 @@ COPY products (id, productname, description, status, priceeach, instock) FROM st
 12	Clacla	Vil	f	2000	100
 \.
 
-SELECT setval('products_id_seq', (SELECT MAX(id) FROM products)+1);
+SELECT pg_catalog.setval('products_id_seq', 13, true);
 
 COPY users (id, username, password, isadmin) FROM stdin;
 1	admin	$2y$10$0iwvbFGPzpbaVi0qBDPtLO.bh1V6pEsA0bdt7VormsF4Yo/myC1b2	t
 2	user	$2y$10$neLmT1fEqtYAbvyCGjbd4emMAXjHvxBnbhwNthDGmRRhEWmXL0MOK	f
 \.
 
-SELECT setval('users_id_seq', (SELECT MAX(id) FROM users)+1);
+SELECT pg_catalog.setval('users_id_seq', 3, true);
