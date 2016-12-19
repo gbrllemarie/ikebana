@@ -1,2 +1,0 @@
-o/
-<?php echo phpinfo(); ?>
