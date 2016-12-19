@@ -23,13 +23,39 @@
 </head>
 <body>
 	<div id="shop">
-		<div class="ui large secondary menu">
-			<div class="item">Ikebana</div>
+		<header class="ui secondary menu">
+			<a href="/" class="title item">
+				ikebana
+			</a>
 			<div class="right menu">
-				<div class="item">login</div>
-				<div class="item">register</div>
+				<div class="item">
+					<a class="ui secondary button" href="/shop.php">
+						Visit Shop
+					</a>
+				</div>
+				<div class="item">
+					<a href="/manage.php" class="ui secondary button">
+						Manage Shop
+					</a>
+				</div>
+				<div class="divider"></div>
+				<div class="item">
+					<a href="/profile.php" class="ui secondary button">
+						<?php echo $_SESSION["username"]; ?>
+					</a>
+				</div>
+				<div class="item">
+					<a href="/api/logout.php" class="ui secondary button">Logout</a>
+				</div>
+			</div>
+		</header>
+
+		<div class="masthead">
+			<div class="ui text container">
+				<h1><?php echo $_SESSION["username"]; ?></h1>
 			</div>
 		</div>
+
 		<div class="ui text container">
 			<?php if (isset($_GET["success_message"])) { ?>
 				<div class="ui success message">

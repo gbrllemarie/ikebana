@@ -32,11 +32,6 @@
 			</a>
 			<div class="right menu">
 				<div class="item">
-					<a class="ui secondary button" href="/manage.php">
-						Manage Shop
-					</a>
-				</div>
-				<div class="item">
 					<a class="ui secondary button" href="/shop.php">
 						Visit Shop
 					</a>
