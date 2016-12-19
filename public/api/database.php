@@ -7,6 +7,6 @@
 	if (isset($_ENV["DATABASE_URL"])) {
 		$db = pg_connect(pg_connection_string_from_database_url());
 	} else {
-		$db = pg_connect("host=localhost port=5432 dbname=ikebana user=root password=root")
+		$db = pg_connect("host=localhost port=5432 dbname=torres user=root password=root")
 			or die("Unable to connect to database: " . pg_last_error());
 	}

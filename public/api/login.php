@@ -16,7 +16,7 @@
 				session_start();
 				$_SESSION["userid"] = $row["id"];
 				$_SESSION["username"] = $row["username"];
-				$_SESSION["userisadmin"] = $row["isadmin"];
+				$_SESSION["userisadmin"] = $row["isadmin"] === "t";
 				// redirect to homepage
 				header("Location: /");
 				die();

@@ -33,11 +33,13 @@
 						Visit Shop
 					</a>
 				</div>
-				<div class="item">
-					<a href="/manage.php" class="ui secondary button">
-						Manage Shop
-					</a>
-				</div>
+				<?php if ($_SESSION["userisadmin"]) { ?>
+					<div class="item">
+						<a href="/manage.php" class="ui secondary button">
+							Manage Shop
+						</a>
+					</div>
+				<?php } ?>
 				<div class="divider"></div>
 				<div class="item">
 					<a href="/profile.php" class="ui secondary button">
